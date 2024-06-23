@@ -1,0 +1,22 @@
+config {
+  type: "assertion",
+  schema: "prathamesh_mydataset"
+}
+
+-- Assertion to ensure 'id' is unique
+ASSERT(
+  (SELECT COUNT(*)
+   FROM (
+     SELECT id
+     FROM prathamesh_mydataset.studentsdata
+     GROUP BY id
+     HAVING COUNT(*) > 1
+   )) = 0
+)
+
+-- Assertion to ensure 'id' is greater than 0
+ASSERT(
+  (SELECT COUNT(*)
+   FROM prathamesh_mydataset.studentsdata
+   WHERE id <= 0) = 0
+)

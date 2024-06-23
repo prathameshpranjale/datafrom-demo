@@ -1,0 +1,28 @@
+-- This is an example SQLX file to help you learn the basics of Dataform.
+-- Visit https://cloud.google.com/dataform/docs/sql-workflows for more information on how to configure your SQL workflow.
+
+-- You can delete this file, then commit and push your changes to your repository when you are ready.
+
+-- Config blocks allow you to configure, document, and test your data assets.
+config {
+  type: "table", // Creates a view in BigQuery. Try changing to "table" instead.
+
+}
+
+-- The rest of a SQLX file contains your SELECT statement used to create the table.
+
+
+CREATE OR REPLACE TABLE prathamesh_mydataset.studentsdata AS
+SELECT * FROM UNNEST([
+  STRUCT(1 AS id, 'John' AS first_name, 'Doe' AS last_name, 85 AS mark, 'A' AS grade),
+  STRUCT(2 AS id, 'Jane' AS first_name, 'Smith' AS last_name, 90 AS mark, 'A' AS grade),
+  STRUCT(3 AS id, 'Alice' AS first_name, 'Johnson' AS last_name, 78 AS mark, 'B' AS grade),
+  STRUCT(4 AS id, 'Bob' AS first_name, 'Brown' AS last_name, 82 AS mark, 'B' AS grade),
+  STRUCT(5 AS id, 'Charlie' AS first_name, 'Davis' AS last_name, 70 AS mark, 'C' AS grade),
+  STRUCT(6 AS id, 'David' AS first_name, 'Miller' AS last_name, 88 AS mark, 'A' AS grade),
+  STRUCT(7 AS id, 'Eve' AS first_name, 'Wilson' AS last_name, 95 AS mark, 'A' AS grade),
+  STRUCT(8 AS id, 'Frank' AS first_name, 'Moore' AS last_name, 67 AS mark, 'D' AS grade),
+  STRUCT(9 AS id, 'Grace' AS first_name, 'Taylor' AS last_name, 74 AS mark, 'C' AS grade),
+  STRUCT(10 AS id, 'Hank' AS first_name, 'Anderson' AS last_name, 80 AS mark, 'B' AS grade)
+])
+

@@ -1,0 +1,16 @@
+config {
+  type: "table"
+}
+
+CREATE OR REPLACE TABLE prathamesh_mydataset.top_5_students AS
+SELECT
+  id,
+  first_name,
+  last_name,
+  mark,
+  grade
+FROM
+  prathamesh_mydataset.studentsdata
+ORDER BY
+  mark DESC
+LIMIT 5

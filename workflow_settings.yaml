@@ -1,0 +1,5 @@
+defaultProject: gifted-slice-425609-j0
+defaultLocation: US
+defaultDataset: dataform
+defaultAssertionDataset: dataform_assertions
+dataformCoreVersion: 3.0.0-beta.4

@@ -1,0 +1,12 @@
+config {
+  type: "table"
+}
+
+CREATE OR REPLACE TABLE prathamesh_mydataset.students_per_grade AS
+SELECT
+  grade,
+  COUNT(*) AS num_students
+FROM
+  prathamesh_mydataset.studentsdata
+GROUP BY
+  grade
